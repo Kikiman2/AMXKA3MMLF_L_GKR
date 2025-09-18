@@ -1,19 +1,21 @@
 import numpy as np
+import random
 
 # Sigmoid function (squashes any number into 0-1 range)
 def sigmoid(z):
     return 1 / (1 + np.exp(-z))
 
 # --- Training data (8 samples) ---
-X = np.array([0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5])   # hours studied
-y = np.array([0, 0, 0, 0, 1, 1, 1, 1])          # 0=fail, 1=pass
+
+X = np.array([0.1, 0.5, 0.7, 1, 2, 1.5])   # hours studied
+y = np.array([0, 0, 0, 1, 1, 1])          # 0=fail, 1=pass
 
 # --- Initialize weight and bias ---
 w = np.random.randn()   # random starting weight
 b = np.random.randn()   # random starting bias
 
 #begginer friendly value
-learning_rate = 0.1
+learning_rate = 0.001
 
 # --- Training loop ---
 for epoch in range(200):  # repeat many times so it learns well
